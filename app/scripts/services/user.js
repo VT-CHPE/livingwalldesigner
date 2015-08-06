@@ -1,6 +1,6 @@
 'use strict';
 angular.module('livingwalldesignerApp').service('User', function ($rootScope, $http, $cookies, $location, $q, ParseInfo) {
-
+  //ParseInfo define in file excluded from git (to protect against public viewing on github)
   var userService = this;
 
   this.current = {};
