@@ -17,7 +17,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'toggle-switch',
+    'parse-angular',
+    'livingwalldesignerAux'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -30,6 +33,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .when('/auth', {
+        templateUrl: 'views/user-authentication.html',
+        controller: 'UserAuthCtrl',
       })
       .otherwise({
         redirectTo: '/'

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Header for the layout switcher</h2>
+      <!-- <code>{{orientationVertical}}</code> -->
+      <toggle-switch
+          ng-model="orientationVertical"
+          knob-label="Orientation"
+          on-label="Vertical"
+          off-label="Horizontal">
+      <toggle-switch>
+    </div>
+  </div>
+  <div class="row">
+    <ng-include src="includeSrc()"></ng-include>
+  </div>
+</div>

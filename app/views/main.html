@@ -1,23 +1,32 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div class="row">
+  <div class="col-md-2">
+    <h2>Topics</h2>
+    <ul>
+      <li><a href="">Item1</a></li>
+      <li><a href="">Item2</a></li>
+      <li>
+        <a href="">Item3</a>
+        <ul>
+          <li><a href="">SubItem1</a></li>
+          <li><a href="">SubItem2</a></li>
+          <li><a href="">SubItem3</a></li>
+        </ul>
+      </li>
+      <li><a href="">Item4</a></li>
+      <li><a href="">Item5</a></li>
+      <li><a href="">Item6</a></li>
+      <li><a href="">Item7</a></li>
+      <li><a href="">Item8</a></li>
+      <li><a href="">Item9</a></li>
+      <li><a href="">Item10</a></li>
+    </ul>
+  </div>
+  <div class="col-md-10">
+    <layout-switcher
+      header-template="header.html" 
+      considerations-template="'views/considerations.html'"
+      preview-template="'views/preview.html'"
+      orientation-vertical="false"
+    ></layout-switcher>
+  </div>
 </div>
