@@ -8,8 +8,8 @@
  * Controller of the livingwalldesignerApp
  */
 angular.module('livingwalldesignerApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
+  .controller('MainCtrl', function ($scope) {
+    $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
