@@ -20,19 +20,29 @@ angular
     'ngTouch',
     'toggle-switch',
     'parse-angular',
-    'livingwalldesignerAux'
+    'livingwalldesignerAux',
+    'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'home'
+      })
+      .when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/chpe', {
+        templateUrl: 'views/chpe.html',
+      })
+      .when('/help', {
+        templateUrl: 'views/help.html',
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
       })
       .when('/auth', {
         templateUrl: 'views/user-authentication.html',

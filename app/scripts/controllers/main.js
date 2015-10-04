@@ -1,17 +1,10 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name livingwalldesignerApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the livingwalldesignerApp
- */
-angular.module('livingwalldesignerApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('livingwalldesignerApp').controller('MainCtrl', function ($scope, PreviewImageService) {
+
+	$scope.getImageUrl = function () {
+		var url = PreviewImageService.getPreviewImageUrl();
+		$scope.noImage = (url === null ? true : false);
+		return url;
+	};
+});

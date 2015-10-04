@@ -1,37 +1,6 @@
-<div class="row">
-  <div class="col-md-2">
-    <h2>Topics</h2>
-    <ul>
-      <li><a href="">Item1</a></li>
-      <li><a href="">Item2</a></li>
-      <li>
-        <a href="">Item3</a>
-        <ul>
-          <li><a href="">SubItem1</a></li>
-          <li><a href="">SubItem2</a></li>
-          <li><a href="">SubItem3</a></li>
-        </ul>
-      </li>
-      <li><a href="">Item4</a></li>
-      <li><a href="">Item5</a></li>
-      <li><a href="">Item6</a></li>
-      <li><a href="">Item7</a></li>
-      <li><a href="">Item8</a></li>
-      <li><a href="">Item9</a></li>
-      <li><a href="">Item10</a></li>
-    </ul>
-    <ul>
-      <li ng-repeat="thing in awesomeThings">
-        {{thing}}
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-10">
-    <layout-switcher
-      header-template="header.html" 
-      considerations-template="'views/considerations.html'"
-      preview-template="'views/preview.html'"
-      orientation-vertical="false"
-    ></layout-switcher>
-  </div>
-</div>
+<layout-switcher
+  header-template="header.html" 
+  considerations-template="'views/considerations.html'"
+  preview-template="'views/preview.html'"
+  orientation-vertical="true"
+></layout-switcher>
