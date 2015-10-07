@@ -2,10 +2,12 @@
     position: fixed;
 }
 
-.bs-docs-sidebar {
+.bs-docs-sidebar>div>ul {
     padding-left: 20px;
+    padding-bottom: 70px;
     margin-top: 20px;
     margin-bottom: 20px;
+    z-index: 1;
 }
 
 /* all links */
@@ -27,6 +29,7 @@
 
 /* active & hover links */
 .bs-docs-sidebar .nav>.active>a,
+.bs-docs-sidebar .nav>li>a.active,
 .bs-docs-sidebar .nav>li>a:hover,
 .bs-docs-sidebar .nav>li>a:focus {
     color: #563d7c;
