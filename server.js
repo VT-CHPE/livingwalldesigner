@@ -10,23 +10,13 @@ var LocalStrategy = require('passport-local').Strategy;
 var genuid = require('uuid');
 var mongoose = require('mongoose');
 
-var User = require('./models/user');
 // Connect to mongodb ==================================================
-mongoose.connect('mongodb://localhost/lwd');
+
+
+var User = require('./models/user');
 
 // Set up passport =====================================================
-passport.use(new LocalStrategy(function(username, password, done){
-	mongoose.model('User').findOne({username:username}, function (err, user){
-		if (err){ 
-			return done(err); 
-		}
-		if (!user || !user.validPassword(password)){
-			return done(null, false, {message: 'Incorrect username or password.'});
-		}
-		return done(null, user);
-	
-	});
-}));
+
 app.use(session({
 	genid: function(req) {
 		return genuid.v4();
@@ -35,6 +25,13 @@ app.use(session({
 	resave: false,
     saveUninitialized: false
 }));
+
+var User = mongoose.model('User');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+mongoose.connect('mongodb://localhost/lwd');
+
 app.use(cookieParser());
 app.use(bodyParser());
 app.use(passport.initialize());
