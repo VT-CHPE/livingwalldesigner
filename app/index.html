@@ -93,5 +93,11 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/login.js"></script>
         <!-- endbuild -->
+    <script>
+		$(".nav a").on("click", function(){
+		$(".nav").find(".active").removeClass("active");
+		$(this).parent().addClass("active");
+});
+    </script>
 </body>
 </html>
