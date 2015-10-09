@@ -8,7 +8,7 @@ angular.module('livingwalldesignerApp').service('PreviewImageService', function 
 	};
 
 	this.setPreviewImageUrl = function (url) {
-		console.log("url is " + url);
+		// console.log("url is " + url);
 		previewImageUrl = url;
 	};
 });

@@ -1,7 +1,7 @@
 
 <ul class="nav nav-stacked fixed" id="sidebar">
 	<li ng-repeat="topLevel in navContents.topLevels">
-		<a ng-href="#{{topLevel.url}}" ng-click="topLevel.isCollapsed = !topLevel.isCollapsed" ng-class="{active : !topLevel.isCollapsed}">{{topLevel.title}}
+		<a ng-href="#{{topLevel.url}}" ng-click="topLevel.isCollapsed = !topLevel.isCollapsed" ng-class="{active : isExpanded(topLevel)}">{{topLevel.title}}
 			<span ng-if="topLevel.hasSub">
 				<span ng-show="topLevel.isCollapsed" class="glyphicon glyphicon-plus"></span>
 				<span ng-show="!topLevel.isCollapsed" class="glyphicon glyphicon-minus"></span>
@@ -10,7 +10,7 @@
 		<div collapse="topLevel.isCollapsed">
 			<ul class="nav nav-stacked">
 				<li ng-repeat="sub in topLevel.subs">
-					<a ng-href="#{{topLevel.url}}" ng-click="changePic(sub.image)">{{sub.title}}</a>
+					<a ng-href="#{{topLevel.url}}" ng-click="changePic(sub.image); changeActive(sub)" ng-class="{active: isActive(sub)}">{{sub.title}}</a>
 				</li>
 			</ul>
 		</div>
