@@ -1,5 +1,5 @@
 
-<ul class="nav nav-stacked fixed" id="sidebar">
+<ul class="nav nav-stacked fixed" data-spy="affix" data-offset-top="205" id="sidebar">
 	<li ng-repeat="topLevel in navContents.topLevels">
 		<a ng-href="#{{topLevel.url}}" ng-click="topLevel.isCollapsed = !topLevel.isCollapsed" ng-class="{active : isExpanded(topLevel)}">{{topLevel.title}}
 			<span ng-if="topLevel.hasSub">

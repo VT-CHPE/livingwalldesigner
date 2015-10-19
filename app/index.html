@@ -14,6 +14,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/nav.css">
     <!-- endbuild -->
   </head>
   <body ng-app="livingwalldesignerApp">
@@ -56,7 +57,7 @@
 
     <div class="container-fliud">
       <div class="row">
-        <nav class="col-md-2 bs-docs-sidebar hidden-print">
+        <nav class="col-md-2 main-navbar hidden-print">
           <div ng-controller="NavCtrl" ng-include="'views/nav.html'"></div>
         </nav>
         <div class="col-md-10" id="main-content">
