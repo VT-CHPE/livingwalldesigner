@@ -1,11 +1,11 @@
 <div ng-controller="ConsiderationCtrl">
 	<h3>{{getTitle()}}</h3>
+	<hr>
 	<dl>
-		<dt>Color Theory</dt>
-		<dd>
-		</dd>
-		<dd>
-		</dd>
-		<dd><a href="" id="lum_link">Lum</a></dd>
+		<div ng-repeat="section in getSections()">
+			<dt>{{section.sectionHeader}}</dt>
+			<dd>{{section.content}}</dd>
+			<br>
+		</div>
 	</dl>
 </div>

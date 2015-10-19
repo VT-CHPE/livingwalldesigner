@@ -20,4 +20,8 @@ angular.module('livingwalldesignerApp').service('SelectedItemService', function 
 		return (selectedItem === null ? null : selectedItem.title);
 	};
 
+	this.getSections = function () {
+		return (selectedItem === null ? null : selectedItem.sections);
+	};
+
 });

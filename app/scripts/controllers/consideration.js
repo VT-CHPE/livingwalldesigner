@@ -6,9 +6,7 @@ angular.module('livingwalldesignerApp').controller('ConsiderationCtrl', ['$scope
 		return SelectedItemService.getTitle();
 	};
 
-	var init = function () {
-		$scope.title = $scope.getTitle();
+	$scope.getSections = function () {
+		return SelectedItemService.getSections();
 	};
-
-	init();
 }]);
