@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('livingwalldesignerApp').controller('NavCtrl', function ($scope, PreviewImageService) {
+angular.module('livingwalldesignerApp').controller('NavCtrl', function ($scope, $location, SelectedItemService) {
 
 	var currentActive = null;
 
@@ -35,7 +35,7 @@ angular.module('livingwalldesignerApp').controller('NavCtrl', function ($scope, 
 		contents.topLevels.push(
 			new TopLevel({
 				title: 'Introduction',
-				url: '/main',
+				url: null,
 				subs: [
 					new SubLevel({isActive: false, title: 'Visual table of contents', image: null}),
 					new SubLevel({isActive: false, title: 'Color theory basics', image: "images/lw_res_imgs/Black,K_Appendicesforframework_A_201510097.jpg"}),
@@ -50,7 +50,7 @@ angular.module('livingwalldesignerApp').controller('NavCtrl', function ($scope, 
 		contents.topLevels.push(
 			new TopLevel({
 				title: 'Design Information',
-				url: '/main',
+				url: null,
 				subs: [
 					new SubLevel({isActive: false, title: 'Appendicies visualization', image: null}),
 					new SubLevel({isActive: false, title: 'Framework for review', image: null}),
@@ -75,7 +75,7 @@ angular.module('livingwalldesignerApp').controller('NavCtrl', function ($scope, 
 		contents.topLevels.push(
 			new TopLevel({
 				title: 'Visual Framework',
-				url: '/main',
+				url: null,
 				subs: [
 					new SubLevel({isActive: false, title: 'Condensed Framework', image: null}),
 					new SubLevel({isActive: false, title: 'Expended Framework', image: null}),
@@ -87,7 +87,7 @@ angular.module('livingwalldesignerApp').controller('NavCtrl', function ($scope, 
 		contents.topLevels.push(
 			new TopLevel({
 				title: 'Topical Considerations',
-				url: '/main',
+				url: null,
 				subs: [
 					new SubLevel({isActive: false, title: 'Hue decision factors', image: null}),
 					new SubLevel({isActive: false, title: 'Color mixture/composition', image: null}),
@@ -147,6 +147,18 @@ angular.module('livingwalldesignerApp').controller('NavCtrl', function ($scope, 
 		return contents;
 	};
 
+	$scope.getUrl = function (topLevel, isSubLevel) {
+		var prevUrl = $location.url();
+		if (topLevel.url === null) {
+			if (isSubLevel) {
+				return '#/main';
+			}
+			return '#' + prevUrl;
+		} else {
+			return '#' + topLevel.url;
+		}
+	};
+
 	$scope.isExpanded = function (topLevel) {
 		if (topLevel.hasSub === true && !topLevel.isCollapsed) {
 			return true;
@@ -167,8 +179,8 @@ angular.module('livingwalldesignerApp').controller('NavCtrl', function ($scope, 
 		currentActive.isActive = true;
 	};
 
-	$scope.changePic = function (url) {
-		PreviewImageService.setPreviewImageUrl(url);
+	$scope.changeSelection = function (newSelect) {
+		SelectedItemService.setSelectedItem(newSelect);
 	};
 
 	var init = function () {

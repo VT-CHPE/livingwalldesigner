@@ -1,56 +1,11 @@
-<h3>Considerations</h3>
-<dl>
-  <dt>Color Theory</dt>
-  <dd>
-	<a id="pop" type="button" href="" data-placement="top" data-toggle="popover" title="Popover title" data-content="And here's some amazing...">Hue</a>
-  </dd>
-  <dd>
-  	<div class="panel-group" id="accordin" role="tablist">
-  		<div class="panel panel-success">
-  			<div class="panel-heading" role="tab" id="headingOne">
-  				<p><a role="button" data-target="#collapseOne" data-toggle="collapse" data-parent="#accordin" href="">Sat</a></p>
-  			</div>
-  			<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel">
-  				<div class="panel-body">
-  					Something...
-  				</div>
-  			</div>
-  		</div>
-  	</div>
-  </dd>
-  <dd><a href="" id="lum_link">Lum</a></dd>
-</dl>
-
-<div class="modal fade" id="lum_modal">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-				<h4 class="modal-title">Modal title</h4>
-			</div>
-			<div class="modal-body">
-				<p>Something</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Confirm</button>
-			</div>
-		</div>
-	</div>
+<div ng-controller="ConsiderationCtrl">
+	<h3>{{getTitle()}}</h3>
+	<dl>
+		<dt>Color Theory</dt>
+		<dd>
+		</dd>
+		<dd>
+		</dd>
+		<dd><a href="" id="lum_link">Lum</a></dd>
+	</dl>
 </div>
-
-<script>
-
-	// initialize popovers
-	$(document).ready(function () {
-		$('[data-toggle="popover"]').popover();
-	});
-
-	// $('#pop').on('click', function () {
-	// 	$(this).popover('toggle');
-	// });
-
-	$('#lum_link').on('click', function () {
-		$('#lum_modal').modal('show');
-	})
-</script>
