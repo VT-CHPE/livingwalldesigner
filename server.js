@@ -16,7 +16,13 @@ var mongoose = require('mongoose');
 var User = require('./models/user');
 
 // Set up passport =====================================================
-
+app.use(passport.initialize());
+app.use(cookieParser());
+app.use(bodyParser());
+app.use(flash());
+app.use(passport.session());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
 	genid: function(req) {
 		return genuid.v4();
@@ -32,11 +38,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 mongoose.connect('mongodb://localhost/lwd');
 
-app.use(cookieParser());
-app.use(bodyParser());
-app.use(passport.initialize());
-app.use(flash());
-app.use(passport.session());
+
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
