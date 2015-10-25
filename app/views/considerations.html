@@ -1,0 +1,11 @@
+<div ng-controller="ConsiderationCtrl">
+	<h3>{{getTitle()}}</h3>
+	<hr>
+	<dl>
+		<div ng-repeat="section in getSections()">
+			<dt>{{section.sectionHeader}}</dt>
+			<dd>{{section.content}}</dd>
+			<br>
+		</div>
+	</dl>
+</div>

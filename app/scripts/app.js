@@ -17,25 +17,37 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'toggle-switch',
+    'parse-angular',
+    'livingwalldesignerAux',
+    'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '../views/main.html',
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'home'
+      })
+      .when('/main', {
+        templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: '../views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/chpe', {
+        templateUrl: 'views/chpe.html',
       })
-      .when('/login', {
-		  templateUrl: '../views/login.html',
-		  controller: 'LoginCtrl',
-		  controllerAs: 'login'
-	  })
+      .when('/help', {
+        templateUrl: 'views/help.html',
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+      })
+      .when('/auth', {
+        templateUrl: 'views/user-authentication.html',
+        controller: 'UserAuthCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });
