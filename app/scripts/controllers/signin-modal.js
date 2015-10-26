@@ -30,15 +30,26 @@ angular.module('livingwalldesignerApp').controller('SignInModalCtrl', function($
 	};
 });
 
-angular.module('livingwalldesignerApp').controller('SignInModalInstanceCtrl', function ($scope, $modalInstance) {
+angular.module('livingwalldesignerApp').controller('SignInModalInstanceCtrl', function ($scope, $modalInstance, $location) {
 
 	$scope.signIn = function () {
 		console.log('signin');
 		console.log($scope.username);
 		console.log($scope.password);
 		// the logic for auth and form validation goes here
+		// admin
+		if (admin($scope.username, $scope.password)) {
+			
+		}
 		$modalInstance.close();
 	};
+
+	var admin = function (username, password) {
+		if (username === "admin" && password === "admin") {
+			return true;
+		}
+		return false;
+	}
 
 	$scope.signUp = function () {
 		console.log('signup');
