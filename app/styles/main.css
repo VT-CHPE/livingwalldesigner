@@ -1,4 +1,6 @@
-
+body {
+	background-color: #ddd;
+}
 
 #main-content {
     margin-top: 60px;
