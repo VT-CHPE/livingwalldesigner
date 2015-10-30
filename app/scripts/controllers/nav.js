@@ -201,10 +201,6 @@ angular.module('livingwalldesignerApp').controller('NavCtrl', function ($scope, 
 		SelectedItemService.setSelectedItem(newSelect);
 	};
 
-	$scope.isAdmin = function () {
-		return true;
-	};
-
 	var init = function () {
 		$scope.navContents = createContents();
 		console.log($scope.navContents);

@@ -57,6 +57,11 @@ app.post('/login', passport.authenticate('local',{
 app.get('/error', function(req, res){
 	res.send(req.flash('error'));
 });
+
+app.get('/admin', function (req, res) {
+	res.type('text/plain');
+	res.send('Admin');
+})
  
 // Serve static content ================================================
 app.use(express.static(__dirname + '/app/'));
