@@ -1,6 +1,12 @@
 'use strict';
 
+var users = require('../../app/controllers/users.server.controller'),
+	index = require('../controllers/index.server.controller');
+
 module.exports = function (app) {
-	var index = require('../controllers/index.server.controller');
-	app.get('/', index.render);
+	app.route('/')
+		.get(index.renderNormal);
+
+	app.route('/admin')
+		.get(users.requiresLogin, users.requiresAdmin, index.renderAdmin);
 };

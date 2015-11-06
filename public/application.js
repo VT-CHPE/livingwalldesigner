@@ -15,6 +15,7 @@ var lwdApp = angular.module(lwdAppName,
 		'toggle-switch',
 		'parse-angular',
 		'ui.bootstrap',
+		'admin',
 		'users',
 		'currentTopic',
 		'index'

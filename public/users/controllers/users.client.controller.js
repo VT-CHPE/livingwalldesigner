@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('UsersCtrl', ['$scope', 'UsersService',
-	function ($scope, UsersService) {
+angular.module('users').controller('UsersCtrl', ['$scope', '$location', 'UsersService',
+	function ($scope, $location, UsersService) {
 		
 		$scope.isAdmin = false;
 
@@ -13,10 +13,23 @@ angular.module('users').controller('UsersCtrl', ['$scope', 'UsersService',
 						$scope.isAdmin = false;
 						console.log('result = ' + result);
 					} else if (result.status === 200) {
-						$scope.isAdmin = result.message;
+						if (result.message) {
+							$scope.isAdmin = true;
+						} else {
+							$scope.isAdmin = false;
+						}
 					}
 				}
 			);
+		};
+
+		$scope.templateUrl = function () {
+			var path = $location.path();
+			if (path !== '/admin') {
+				return "index/views/nav.html";
+			} else {
+				return "admin/views/nav.html";
+			}
 		};
 
 		init();

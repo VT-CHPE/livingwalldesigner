@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var config = require('./config'),
 	express = require('express'),
@@ -40,6 +40,7 @@ module.exports = function () {
 
 	require('../app/routes/index.server.routes.js')(app);
 	require('../app/routes/users.server.routes.js')(app);
+	require('../app/routes/topics.server.routes.js')(app);
 
 	app.use(express.static('./public'));
 

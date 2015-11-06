@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('index').config(['$routeProvider',
 	function ($routeProvider) {
 		$routeProvider
@@ -15,6 +17,12 @@ angular.module('index').config(['$routeProvider',
 		})
 		.when('/about', {
 			templateUrl: 'index/views/about.html',
+		})
+		.when('/contact', {
+			templateUrl: 'index/views/contact.html',
+		})
+		.when('/admin', {
+			templateUrl: 'admin/views/home.html',
 		})
 		.otherwise({
 			redirectTo: '/'

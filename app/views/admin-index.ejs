@@ -41,14 +41,12 @@
 			<div class="collapse navbar-collapse" id="js-navbar-collapse">
 
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#!/">Home</a></li>
-					<li><a ng-href="#!/about">About</a></li>
-					<li><a ng-href="#!/contact">Contact</a></li>
+					<li class="active"><a>Admin</a></li>
 				</ul>
 
 				<!-- Sign in form -->
 				<form class="navbar-form navbar-right" id="sign_in_form" ng-controller="SignInModalCtrl">
-					<button type="button" class="btn btn-success form-control" ng-click="inOrOut()">{{buttonText}}</button>
+					<button type="button" class="btn btn-success form-control" ng-click="signOut()">Sign Out</button>
 				</form>
 			</div>
 		</div>
@@ -58,7 +56,7 @@
 <div class="container-fliud">
 	<div class="row">
 		<nav class="col-md-2 main-navbar hidden-print">
-			<div ng-include="'index/views/nav.html'"></div>
+			<div ng-include="'admin/views/nav.html'"></div>
 		</nav>
 		<div class="col-md-10" id="main-content">
 			<div ng-view></div>
@@ -100,7 +98,6 @@
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="application.js"></script>
 <script src="index/index.client.module.js"></script>
-<script src="index/index.client.routes.js"></script>
 <script src="index/controllers/home.js"></script>
 <script src="index/controllers/image.js"></script>
 <script src="index/controllers/consideration.js"></script>
@@ -112,6 +109,8 @@
 <script src="users/controllers/users.client.controller.js"></script>
 <script src="users/services/users.client.service.js"></script>
 <script src="admin/admin.client.module.js"></script>
+<script src="admin/admin.client.routes.js"></script>
+<script src="admin/controllers/admin.client.controller.js"></script>
 <!-- endbuild -->
 </body>
 </html>

@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', 'UsersService',
-	function($scope, $modal, UsersService) {
+angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$window', 'UsersService',
+	function($scope, $modal, $window, UsersService) {
 
 		$scope.animationEnabled = true;
 		var inText = 'Sign In';
@@ -44,6 +44,18 @@ angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', 'User
 			modalInstance.result.then(
 				function () {	// sign in successfully
 					$scope.buttonText = outText;
+					// check admin privilege and redirect
+					UsersService.checkAdmin().then(
+						function (result) {
+							if (result.status === 200) {
+								if (result.message) {	// redirect to admin page
+									$window.location = 'admin';
+								} else {
+									// do nothing
+								}
+							}
+						}
+					);
 				},
 				function () {	// user has dismissed the modal
 					$scope.buttonText = inText;

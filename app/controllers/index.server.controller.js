@@ -1,7 +1,9 @@
-exports.render = function (req, res) {
+'use strict';
 
-	res.render('index', {
-		title: 'Hello World',
-		user: JSON.stringify(req.user)
-	});
+exports.renderNormal = function (req, res) {
+	res.render('index');
+};
+
+exports.renderAdmin = function (req, res) {
+	res.render('admin-index');
 };

@@ -186,3 +186,13 @@ exports.requiresLogin = function (req, res, next) {
 
 	next();
 };
+
+exports.requiresAdmin = function (req, res, next) {
+	if (req.user.role !== 'Admin') {
+		return res.status(401).send({
+			message: 'Admin privilege is required'
+		});
+	}
+
+	next();
+};
