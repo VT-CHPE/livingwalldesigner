@@ -1,12 +1,6 @@
-# livingwalldesigner
+when adding dependencies for node, add the corresponding entry in package.json, then do 'npm install' or 'npm update'
+when adding dependencies for angular, add the corresponding entry in the bower.json, then do 'bower install' or 'bower update'
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
-
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+All server side code should be put under app folder
+All frontend code should be put under public folder
+The passport is set up correctly, and the user authentication is partially working now
