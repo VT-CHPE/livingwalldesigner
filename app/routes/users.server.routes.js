@@ -1,4 +1,6 @@
-var users = require('../../app/controllers/users.server.controller')
+'use strict';
+
+var users = require('../../app/controllers/users.server.controller'),
 	passport = require('passport');
 
 module.exports = function (app) {
@@ -14,13 +16,17 @@ module.exports = function (app) {
 		.post(users.create);
 
 	app.route('/api/users/login')
+		.get(users.checkLogin)
 		.post(users.login);
 
 	app.route('/api/users/logout')
-		.get(users.logout);
+		.get(users.requiresLogin, users.logout);
 
 	app.route('/api/users/update')
-		.post(users.update);
+		.post(users.requiresLogin, users.update);
+
+	app.route('/api/users/admin')
+		.get(users.requiresLogin, users.checkAdmin);
 
 	app.param('userId', users.userByID);
 };

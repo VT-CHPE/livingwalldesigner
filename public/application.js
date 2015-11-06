@@ -27,7 +27,9 @@ lwdApp.config(['$locationProvider',
 	}
 ]);
 
-// if (window.location.hash === '#_=_') window.location.hash = '#!';
+if (window.location.hash === '#_=_') {
+	window.location.hash = '#!';
+}
 
 angular.element(document).ready(function () {
 	angular.bootstrap(document, [lwdAppName]);

@@ -1,3 +1,5 @@
+'use strict';
+
 var User = require('mongoose').model('User'),
 	passport = require('passport');
 
@@ -15,7 +17,9 @@ var getErrorMessage = function (err) {
 		}
 	} else {
 		for (var errName in err.errors) {
-			if (err.errors[errName].message) message = err.errors[errName].message;
+			if (err.errors[errName].message) {
+				message = err.errors[errName].message;
+			}
 		}
 	}
 
@@ -23,15 +27,9 @@ var getErrorMessage = function (err) {
 };
 
 exports.logout = function (req, res) {
-	var user = req.user;
-	if (typeof user === 'undefined') {
-		return res.status(400).send({
-			message: "not logged in"
-		});
-	}
 	req.logout();
 	return res.status(200).send({
-		messgae: "logout success"
+		message: "logout success"
 	});
 };
 
@@ -51,10 +49,11 @@ exports.create = function (req, res) {
 			} else {
 				// provided by passport, login after sign up
 				req.login(user, function (err) {
-					if (err) 
+					if (err) {
 						return res.status(400).send({
 							message: getErrorMessage(err)
 						});
+					}
 					return res.status(200).send({
 						message: "Authenticated"
 					});
@@ -86,17 +85,44 @@ exports.login = function (req, res) {
 			});
 		} else {
 			req.login(user, function (err) {
-				if (err) 
+				if (err) {
 					return res.status(400).send({
 						message: getErrorMessage(err)
 					});
+				}
 				return res.status(200).send({
 					message: "Authenticated"
 				});
 			});
 		}
 	})(req, res);
-}
+};
+
+exports.checkLogin = function (req, res) {
+	var user = req.user;
+	if (typeof user === 'undefined') {
+		return res.status(200).send({
+			isLogin: false
+		});
+	} else {
+		return res.status(200).send({
+			isLogin: true
+		});
+	}
+};
+
+exports.checkAdmin = function (req, res) {
+	var user = req.user;
+	if (user.role === "Admin") {
+		return res.status(200).send({
+			message: true
+		});
+	} else {
+		return res.status(200).send({
+			message: false
+		});
+	}
+};
 
 exports.list = function (req, res, next) {
 	User.find({}, function (err, users) {
@@ -149,4 +175,14 @@ exports.delete = function (req, res, next) {
 			res.json(req.user);
 		}
 	});
+};
+
+exports.requiresLogin = function (req, res, next) {
+	if (!req.isAuthenticated()) {
+		return res.status(401).send({
+			message: 'User is not logged in'
+		});
+	}
+
+	next();
 };

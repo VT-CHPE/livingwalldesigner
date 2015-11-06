@@ -4,20 +4,30 @@ angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', 'User
 	function($scope, $modal, UsersService) {
 
 		$scope.animationEnabled = true;
+		var inText = 'Sign In';
+		var outText = 'Sign Out';
 
-		$scope.loggedIn = function () {
-			var auth = UsersService.authentication;
-			if (typeof auth === 'undefined' || auth === null) {
-				return false;
-			}
-			return true;
+		$scope.inOrOut = function () {
+			UsersService.checkLogin().then(
+				function (result) {
+					if (result.status === 200) {
+						if (!result.message) { // not logged in
+							openSignInModal();
+						} else { // logged in
+							signOut();
+						}
+					} else {
+						console.log('something went wrong');
+					}
+				}
+			);
 		};
 
 		/*
 			This function will return  modalInstance so it can be used to 
 			create the signin modal
 		*/
-		$scope.openSignInModal = function (size) {
+		var openSignInModal = function (size) {
 
 			var modalInstance = $modal.open({
 				animation: $scope.animationEnabled,
@@ -32,11 +42,46 @@ angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', 'User
 
 			// when the signin modal is closed, this will be called
 			modalInstance.result.then(
-				function () {
-					console.log('result');
+				function () {	// sign in successfully
+					$scope.buttonText = outText;
+				},
+				function () {	// user has dismissed the modal
+					$scope.buttonText = inText;
 				}
 			);
 		};
+
+		var signOut = function () {
+			UsersService.logout().then(
+				function (result) {
+					if (result.status === 200 && result.success) {
+						$scope.buttonText = inText;
+					} else {
+						// something went wrong
+						console.log(result);
+					}
+				}
+			);
+		};
+
+		var init = function () {
+			UsersService.checkLogin().then(
+				function (result) {
+					console.log('result = ' + result);
+					if (result.status === 200) {
+						if (result.message) {
+							$scope.buttonText = outText;
+						} else {
+							$scope.buttonText = inText;
+						}
+					} else {
+						console.log('something went wrong');
+					}
+				}
+			);
+		};
+
+		init();
 	}
 ]);
 
@@ -44,9 +89,8 @@ angular.module('index').controller('SignInModalInstanceCtrl', ['$scope', '$modal
 	function ($scope, $modalInstance, $location, UsersService) {
 
 	$scope.signIn = function () {
-		console.log('signin');
-		// the logic for auth and form validation goes here
-		// admin
+		$scope.errorMessage = '';
+
 		UsersService.login($scope.login).then(
 			function (result) {
 				if (result !== null) {
@@ -58,28 +102,16 @@ angular.module('index').controller('SignInModalInstanceCtrl', ['$scope', '$modal
 		);
 	};
 
-	var admin = function (username, password) {
-		if (username === "admin" && password === "admin") {
-			return true;
-		}
-		return false;
-	}
-
 	$scope.signUp = function () {
-		console.log('signup');
+		$scope.errorMessage = '';
+
 		UsersService.create($scope.reg).then(function (result) {
 			if (result !== null) {
 				$scope.errorMessage = result.message;
 			} else {
 				$modalInstance.close();
 			}
-		});/*
-		console.log('errorMessage = ' + errorMessage);
-		if (errorMessage) {
-			console.log('errorMessage = ' + errorMessage);
-		} else {
-			$modalInstance.close();
-		}*/
+		});
 	};
 
 	$scope.cancel = function () {
@@ -87,6 +119,7 @@ angular.module('index').controller('SignInModalInstanceCtrl', ['$scope', '$modal
 	};
 
 	$scope.changeToSignIn = function () {
+		$scope.errorMessage = '';
 		$scope.username = '';
 		$scope.password = '';
 		$scope.isSignIn = true;
@@ -95,8 +128,9 @@ angular.module('index').controller('SignInModalInstanceCtrl', ['$scope', '$modal
 
 	$scope.changeToSignUp = function () {
 		console.log('change');
-		$scope.regUsername = '';
-		$scope.regPassword = '';
+		$scope.errorMessage = '';
+		$scope.reg.username = '';
+		$scope.reg.password = '';
 		$scope.isSignIn = false;
 		$scope.modalTitle = 'Sign Up';
 	};
@@ -105,8 +139,10 @@ angular.module('index').controller('SignInModalInstanceCtrl', ['$scope', '$modal
 	var init = function () {
 		$scope.username = '';
 		$scope.password = '';
-		$scope.regUsername = '';
-		$scope.regPassword = '';
+		$scope.errorMessage = '';
+		$scope.reg = {};
+		$scope.reg.username = '';
+		$scope.reg.password = '';
 		$scope.rememberMe = false;
 		$scope.isSignIn = true;
 		$scope.modalTitle = "Sign In";

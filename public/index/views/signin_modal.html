@@ -4,6 +4,9 @@
 </div>
 <div class="modal-body">
 	<form class="form-horizontal" ng-show="isSignIn">
+		<div class="form-group" ng-show="errorMessage != ''">
+			<input type="text" class="form-control" name="Error" id="Error" readonly ng-model="errorMessage">
+		</div>
 		<div class="form-group">
 			<div class="col-md-offset-2 col-md-8">
 				<input type="text" class="form-control" id="username" placeholder="Username" required ng-model="login.username">
@@ -31,7 +34,7 @@
 	</form>
 
 	<form class="form-horizontal" ng-show="!isSignIn">
-		<div class="form-group" ng-show="errorMessage != null">
+		<div class="form-group" ng-show="errorMessage != ''">
 			<input type="text" class="form-control" name="Error" id="Error" readonly ng-model="errorMessage">
 		</div>
 		<div class="form-group">
