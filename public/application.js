@@ -17,6 +17,7 @@ var lwdApp = angular.module(lwdAppName,
 		'ui.bootstrap',
 		'admin',
 		'users',
+		'topics',
 		'currentTopic',
 		'index'
 	]

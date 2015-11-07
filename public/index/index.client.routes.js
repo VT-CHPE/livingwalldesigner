@@ -21,9 +21,6 @@ angular.module('index').config(['$routeProvider',
 		.when('/contact', {
 			templateUrl: 'index/views/contact.html',
 		})
-		.when('/admin', {
-			templateUrl: 'admin/views/home.html',
-		})
 		.otherwise({
 			redirectTo: '/'
 		});

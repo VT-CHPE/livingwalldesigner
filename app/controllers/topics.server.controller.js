@@ -78,9 +78,9 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
 	var topic = req.topic;
 
-	topic.topicName = req.body.topicName;
-	topic.order = req.body.order;
-	topic.subTopicNames = req.body.subTopicNames;
+	topic.topicName = req.body.newTopic.topicName;
+	topic.subTopicNames = req.body.newTopic.subTopicNames;
+	topic.order = req.body.newTopic.order;
 
 	topic.save(function (err) {
 		if (err) {
@@ -88,7 +88,9 @@ exports.update = function (req, res) {
 				message: getErrorMessage(err)
 			});
 		} else {
-			res.json(topic);
+			res.status(200).send({
+				message: "Modify success"
+			});
 		}
 	});
 };

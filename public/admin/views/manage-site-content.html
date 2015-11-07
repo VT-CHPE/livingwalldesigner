@@ -1,1 +1,63 @@
-This is the manage-site-content view
+<div class="row" ng-controller="TopicsCtrl">
+	<div class="col-md-5">
+		<div class="panel panel-success">
+			<div class="panel-heading">Topics<span class="glyphicon glyphicon-refresh pull-right" ng-click="refreshTopics()"></span></div>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="topic in topics">
+						<td>{{topic.order}}</td>
+						<td ng-click="changeTopic(topic)">{{topic.topicName}}</td>
+						<td ng-controller="TopicModalCtrl">
+							<span class="glyphicon glyphicon-pencil" ng-click="modifyTopicModal(topic, 'lg')"></span>&nbsp;&nbsp;&nbsp;
+							<span class="glyphicon glyphicon-trash"></span>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<button ng-controller="TopicModalCtrl" class="btn btn-primary" ng-click="newTopicModal('lg')">Add</button>
+						</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-md-5">
+		<div class="panel panel-info">
+			<div class="panel-heading">Sub Topics<span class="glyphicon glyphicon-refresh pull-right" ng-click="refreshSubTopics()"></span></div>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="sub in currentTopic.subTopicNames">
+						<td>{{sub.order}}</td>
+						<td>{{sub.name}}</td>
+						<td>
+							<span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;&nbsp;
+							<span class="glyphicon glyphicon-trash"></span>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+						</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
