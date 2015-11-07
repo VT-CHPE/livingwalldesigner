@@ -104,7 +104,9 @@ exports.delete = function (req, res) {
 				message: getErrorMessage(err)
 			});
 		} else {
-			res.json(topic);
+			res.status(200).send({
+				message: "Delete success"
+			});
 		}
 	});
 };

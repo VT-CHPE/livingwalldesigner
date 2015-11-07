@@ -12,6 +12,9 @@ angular.module('admin').config(['$routeProvider',
 		.when('/manage-users', {
 			templateUrl: 'admin/views/manage-users.html'
 		})
+		.when('/manage-server-files', {
+			templateUrl: 'admin/views/manage-server-files.html'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

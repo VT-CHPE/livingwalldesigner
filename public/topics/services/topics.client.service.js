@@ -7,7 +7,8 @@ angular.module('topics').factory('Topics', ['$resource',
 				topicId: '@_id'
 			},
 			{
-				update: {method: 'POST'}
+				update: {method: 'POST'},
+				delete: {method: 'DELETE'}
 			}
 		);
 	}
@@ -82,6 +83,26 @@ angular.module('topics').service('TopicsService', ['Topics',
 			return Topics.update({
 				"_id": args._id,
 				"newTopic": args
+			}).$promise.then(
+				function (response) {
+					return {
+						"status": 200,
+						"message": response.message
+					};
+				},
+				function (errorResponse) {
+					return {
+						"status": errorResponse.status,
+						"message": errorResponse.data.message
+					};
+				}
+			);
+		};
+
+		this.delete = function (args) {
+			
+			return Topics.delete({
+				"topicId": args._id
 			}).$promise.then(
 				function (response) {
 					return {

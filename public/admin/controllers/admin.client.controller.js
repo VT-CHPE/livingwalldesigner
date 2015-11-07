@@ -22,6 +22,12 @@ angular.module('admin').controller('AdminCtrl', ['$scope',
 					url: "#!/manage-users"
 				})
 			);
+			$scope.topLevels.push(
+				new TopLevel({
+					title: "Manage Server Files",
+					url: "#!/manage-server-files"
+				})
+			);
 		};
 
 		var init = function () {

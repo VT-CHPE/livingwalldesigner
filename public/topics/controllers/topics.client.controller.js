@@ -16,7 +16,7 @@ angular.module('topics').controller('TopicsCtrl', ['$scope', 'TopicsService',
 			if ($scope.currentTopic) {
 				updateTopic($scope.currentTopic);
 			}
-		}
+		};
 
 		var updateTopic = function (topic) {
 			TopicsService.findOne(topic).then(

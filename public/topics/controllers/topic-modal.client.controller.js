@@ -55,6 +55,28 @@ angular.module('topics').controller('TopicModalCtrl', ['$scope', '$modal',
 			);
 		};
 
+		$scope.deleteTopicModal = function (topic, size) {
+			
+			var modalInstance = $modal.open({
+				animation: $scope.animationEnabled,
+				templateUrl: '/topics/views/delete-topic-modal.client.view.html',
+				controller: 'DeleteTopicModalInstanceCtrl',
+				size: size,
+				resolve: {
+					topic: topic
+				}
+			});
+
+			modalInstance.result.then(
+				function () {
+					
+				},
+				function () {
+					
+				}
+			);
+		};
+
 		var init = function () {
 
 		};
@@ -162,6 +184,39 @@ angular.module('topics').controller('ModifyTopicModalInstanceCtrl', ['$scope', '
 			$scope.modify = topic;
 			$scope.errorMessage = '';
 			$scope.modalTitle = "Modify Topic";
+		};
+
+		init();
+	}
+]);
+
+
+angular.module('topics').controller('DeleteTopicModalInstanceCtrl', ['$scope', '$modalInstance', 'TopicsService', 'topic',
+	function ($scope, $modalInstance, TopicsService, topic) {
+
+		$scope.deleteTopic = function () {
+			$scope.errorMessage = '';
+			TopicsService.delete($scope.delete).then(
+				function (result) {
+					if (result.status === 200) {
+						$modalInstance.close();
+					} else {
+						$scope.errorMessage = result.message;
+					}
+				}
+			);
+		};
+
+		$scope.cancel = function () {
+			$scope.errorMessage = '';
+			$modalInstance.dismiss('cancel');
+		};
+
+		// initialize the content of the modal
+		var init = function () {
+			$scope.delete = topic;
+			$scope.errorMessage = '';
+			$scope.modalTitle = "Delete Topic";
 		};
 
 		init();
