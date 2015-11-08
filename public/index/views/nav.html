@@ -1,17 +1,15 @@
 
 <ul ng-controller="NavCtrl" class="nav nav-stacked fixed" data-spy="affix" data-offset-top="205" id="sidebar">
-	<li ng-repeat="topLevel in navContents.topLevels">
-		<a ng-href="{{getUrl(topLevel, false)}}" ng-click="topLevel.isCollapsed = !topLevel.isCollapsed" 
-		ng-class="[{active : isExpanded(topLevel)}, {noChangeUrl : topLevel.hasSub}]">{{topLevel.title}}
-			<span ng-if="topLevel.hasSub">
-				<span ng-show="topLevel.isCollapsed" class="glyphicon glyphicon-plus"></span>
-				<span ng-show="!topLevel.isCollapsed" class="glyphicon glyphicon-minus"></span>
+	<li ng-repeat="topic in topics">
+		<a ng-class="{active: isActive(topic), expanded: topic.isExpanded}" ng-click="expandTopic(topic);activeTopic(topic)">{{topic.topicName}}
+			<span ng-if="hasSub(topic)">
+				<span class="glyphicon" ng-class="{'glyphicon-plus': !topic.isExpanded, 'glyphicon-minus': topic.isExpanded}"></span>
 			</span>
 		</a>
-		<div collapse="topLevel.isCollapsed">
+		<div collapse="!topic.isExpanded">
 			<ul class="nav nav-stacked">
-				<li ng-repeat="sub in topLevel.subs">
-					<a ng-href="{{getUrl(topLevel, true)}}" ng-click="changeSelection(sub); changeActive(sub)" ng-class="{active: isActive(sub)}">{{sub.title}}</a>
+				<li ng-repeat="sub in topic.subTopicNames">
+					<a ng-class="{active: isActive(sub)}" ng-click="activeSub(sub)">{{sub.name}}</a>
 				</li>
 			</ul>
 		</div>

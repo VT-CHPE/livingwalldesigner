@@ -15,30 +15,13 @@ angular.module('index').controller('ImageCtrl', ['$scope', '$modal', 'CurrentTop
 			$scope: $scope.$new(true),
 			resolve: {
 				image: function () {
-					return parseImageUrl(url);
+					return url;
 				}
 			},
 			size: 'lg'
 		}).result['finally'](function () {
 			// after the modal is closed
 		});
-	};
-
-	var parseImageUrl = function (url) {
-		var index = url.lastIndexOf("/");
-		console.log('index = ' + index);
-
-		// image name
-		var imageName = url.slice(index + 1);
-
-		// base
-		var base = url.slice(0, index);
-		index = base.lastIndexOf("/");
-		base = base.slice(0, index);
-
-		var newUrl = base + "/hg_res_imgs/" + imageName;
-
-		return newUrl;
 	};
 
 	var ExpandImageCtrl = function ($scope, $modalInstance, image) {

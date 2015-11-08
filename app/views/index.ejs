@@ -46,10 +46,16 @@
 					<li><a ng-href="#!/contact">Contact</a></li>
 				</ul>
 
+				<div>
 				<!-- Sign in form -->
 				<form class="navbar-form navbar-right" id="sign_in_form" ng-controller="SignInModalCtrl">
 					<button type="button" class="btn btn-success form-control" ng-click="inOrOut()">{{buttonText}}</button>
 				</form>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="">welcomeMessage</a></li>
+				</ul>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -107,7 +113,8 @@
 <script src="index/controllers/signin-modal.js"></script>
 <script src="index/controllers/nav.js"></script>
 <script src="currentTopic/currentTopic.client.module.js"></script>
-<script src="currentTopic/services/selectedItem.js"></script>
+<script src="currentTopic/services/currentTopic.client.service.js"></script>
+<script src="currentTopic/controllers/currentTopic.client.controller.js"></script>
 <script src="users/users.client.module.js"></script>
 <script src="users/controllers/users.client.controller.js"></script>
 <script src="users/services/users.client.service.js"></script>

@@ -8,15 +8,11 @@ angular.module('index').config(['$routeProvider',
 		})
 		.when('/topic', {
 			templateUrl: 'index/views/topic.html',
+			controller: 'CurrentTopicCtrl',
 		})
-		.when('/chpe', {
-			templateUrl: 'index/views/chpe.html',
-		})
-		.when('/help', {
-			templateUrl: 'index/views/help.html',
-		})
-		.when('/about', {
-			templateUrl: 'index/views/about.html',
+		.when('/sub-topic', {
+			templateUrl: 'index/views/sub-topic.html',
+			controller: 'CurrentTopicCtrl'
 		})
 		.when('/contact', {
 			templateUrl: 'index/views/contact.html',

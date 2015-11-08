@@ -45,10 +45,14 @@
 					<li class="active"><a>Admin</a></li>
 				</ul>
 
-				<!-- Sign in form -->
-				<form class="navbar-form navbar-right" id="sign_in_form" ng-controller="SignInModalCtrl">
-					<button type="button" class="btn btn-success form-control" ng-click="signOut()">Sign Out</button>
+				<form class="navbar-form navbar-right">
+					<button ng-controller="AdminCtrl" type="button" class="btn btn-success form-control" ng-click="signOut()">Sign Out</button>
 				</form>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a>Welcome Admin</a></li>
+				</ul>
+
 			</div>
 		</div>
 	</div>

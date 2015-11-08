@@ -1,2 +1,2 @@
 <h3>Preview</h3>
-<img ng-controller="ImageCtrl" ng-hide="noImage" ng-click="expand(getImageUrl())" ng-src="{{getImageUrl()}}" alt="" width="50%">
+<img ng-controller="ImageCtrl" ng-click="expand(currentTopic().hgImageUrl)" ng-src="{{currentTopic().lwImageUrl}}" alt="imagepreview" width="50%">

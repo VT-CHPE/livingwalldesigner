@@ -52,6 +52,11 @@
     border-left: 2px solid #A2985F;
 }
 
+/* expanded links */
+.main-navbar .nav>li>.expanded {
+    border-bottom: 2px solid #A2985F;
+}
+
 /* all active links */
 .main-navbar .nav>li>.active {
     font-weight: 700;
