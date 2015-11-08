@@ -79,6 +79,7 @@ exports.update = function (req, res) {
 	var topic = req.topic;
 
 	topic.topicName = req.body.newTopic.topicName;
+	topic.contentUrl = req.body.newTopic.contentUrl;
 	topic.subTopicNames = req.body.newTopic.subTopicNames;
 	topic.order = req.body.newTopic.order;
 

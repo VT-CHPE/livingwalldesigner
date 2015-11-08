@@ -21,6 +21,7 @@ angular.module('topics').service('TopicsService', ['Topics',
 		this.create = function (args) {
 			var topic = new Topics({
 				topicName: args.topicName,
+				contentUrl: args.contentUrl,
 				order: args.order,
 				subTopicNames: args.subTopicNames
 			});

@@ -18,3 +18,8 @@ div.container-fluid > div.row {
 	margin-left: 0px;
 	margin-right: 0px;
 }
+
+body > div.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+}

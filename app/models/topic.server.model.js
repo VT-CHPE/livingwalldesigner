@@ -12,6 +12,15 @@ var SubTopicNameSchema = new Schema({
 	order: {
 		type: Number,
 		min: 1
+	},
+	contentUrl: {
+		type: String
+	},
+	lwImageUrl: {
+		type: String
+	},
+	hgImageUrl: {
+		type: String
 	}
 });
 
@@ -23,6 +32,9 @@ var TopicSchema = new Schema({
 		required: 'Topic name is required'
 	},
 	subTopicNames: [SubTopicNameSchema],
+	contentUrl: {
+		type: String,
+	},
 	order: {
 		type: Number,
 		unique: true,

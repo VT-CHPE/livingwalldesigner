@@ -1,0 +1,7 @@
+.selected {
+	background-color: rgba(215, 207, 157, 0.84);
+}
+
+.table-hover tbody tr.selected:hover td, .table-hover tbody tr.selected:hover th {
+	background-color: rgba(218, 209, 155, 1);
+}
