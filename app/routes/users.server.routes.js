@@ -20,5 +20,8 @@ module.exports = function (app) {
 	app.route('/api/users/admin')
 		.get(users.requiresLogin, users.checkAdmin);
 
+	app.route('/api/users/current')
+		.get(users.read);
+
 	app.param('userId', users.userByID);
 };

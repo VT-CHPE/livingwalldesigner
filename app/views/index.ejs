@@ -52,8 +52,8 @@
 					<button type="button" class="btn btn-success form-control" ng-click="inOrOut()">{{buttonText}}</button>
 				</form>
 
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="">welcomeMessage</a></li>
+				<ul class="nav navbar-nav navbar-right" ng-controller="UsersCtrl">
+					<li ng-show="current != null"><a href="" ng-click="gotoUserPanel()">Hello, {{current.fullName}}</a></li>
 				</ul>
 				</div>
 			</div>
@@ -62,11 +62,11 @@
 </div>
 
 <div class="container-fluid">
-	<div class="row">
-		<nav class="main-navbar hidden-print">
+	<div class="row" ng-controller="HideCtrl">
+		<nav class="main-navbar hidden-print" ng-class="{hide: hideNav()}">
 			<div ng-include="'index/views/nav.html'"></div>
 		</nav>
-		<div class="col-md-12" id="main-content">
+		<div class="col-md-12" id="main-content" ng-class="{'restore-padding': hideNav()}">
 			<div ng-view></div>
 		</div>
 	</div>
@@ -121,6 +121,8 @@
 <script src="admin/admin.client.module.js"></script>
 <script src="topics/topics.client.module.js"></script>
 <script src="topics/services/topics.client.service.js"></script>
+<script src="hide/hide.client.module.js"></script>
+<script src="hide/controllers/hide.client.controller.js"></script>
 <!-- endbuild -->
 </body>
 </html>

@@ -135,7 +135,17 @@ exports.list = function (req, res, next) {
 };
 
 exports.read = function (req, res) {
-	res.json(req.user);
+	if (typeof req.user === "undefined") {
+		return res.status(200).send({
+			message: "not logged in",
+			user: null
+		});
+	} else {
+		return res.status(200).send({
+			message: "logged in",
+			user: req.user
+		});
+	}
 };
 
 exports.userByID = function (req, res, next, id) {

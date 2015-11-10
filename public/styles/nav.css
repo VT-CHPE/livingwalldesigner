@@ -52,6 +52,10 @@
     border-left: 2px solid #A2985F;
 }
 
+.main-navbar .nav>li:hover {
+    cursor: pointer;
+}
+
 /* expanded links */
 .main-navbar .nav>li>.expanded {
     border-bottom: 2px solid #A2985F;

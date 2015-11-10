@@ -17,6 +17,14 @@ angular.module('index').config(['$routeProvider',
 		.when('/contact', {
 			templateUrl: 'index/views/contact.html',
 		})
+		.when('/user', {
+			templateUrl: '/users/views/users.client.manage.html',
+			controller: 'UsersCtrl'
+		})
+		.when('/user/profile', {
+			templateUrl: '/users/views/users.client.profile.html',
+			controller: 'UsersCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

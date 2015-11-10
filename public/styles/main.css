@@ -23,3 +23,11 @@ body > div.container-fluid {
 	padding-left: 0px;
 	padding-right: 0px;
 }
+
+.hide {
+	display: none;
+}
+
+div#main-content.restore-padding {
+	padding-left: 15px;
+}

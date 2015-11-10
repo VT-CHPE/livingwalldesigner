@@ -19,7 +19,8 @@ var lwdApp = angular.module(lwdAppName,
 		'users',
 		'topics',
 		'currentTopic',
-		'index'
+		'index',
+		'hide'
 	]
 );
 

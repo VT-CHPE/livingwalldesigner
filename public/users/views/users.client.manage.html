@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="thumbnail">
+				<a href="">
+					<img src="images/thumbnail-placeholder.png" alt="Your Photo" height="230" width="230">
+				</a>
+			</div>
+			<h2>{{current.fullName}}</h2>
+			<hr>
+			<h3><small>Joined on {{current.created | date}}</small></h3>
+			<hr>
+		</div>
+		<div class="col-md-9">
+			<div class="alert alert-info" role="alert">
+				<div class="row">
+					<div class="col-md-9 col-xs-9">
+						<h5><b>Hey! </b> You can edit your profile here!</h5>
+					</div>
+					<div class="col-md-3 col-xs-3">
+						<button ng-click="gotoProfile()" class="btn btn-success">Edit Profile</button>
+					</div>
+				</div>
+			</div>
+			<h2>Browsing history</h2>
+			<hr>
+			<p>some stuff</p>
+			<hr>
+			<h2>Your submissions</h2>
+			<hr>
+			<p>some stuff</p>
+			<hr>
+		</div>
+	</div>
+</div>
