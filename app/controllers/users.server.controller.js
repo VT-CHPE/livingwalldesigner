@@ -162,17 +162,13 @@ exports.userByID = function (req, res, next, id) {
 };
 
 exports.update = function (req, res, next) {
-	var user = req.user;
-	if (typeof user === 'undefined') {
-		return res.status(403).send({
-			message: "you are not logged in"
-		});
-	}
-	User.findByIdAndUpdate(user.id, req.body, function (err, user) {
+	User.findByIdAndUpdate(req.user.id, req.body, function (err, user) {
 		if (err) {
 			return next(err);
 		} else {
-			res.status(200).json(user);
+			res.status(200).send({
+				message: "update success",
+			});
 		}
 	});
 };

@@ -1,0 +1,42 @@
+<div class="row">
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label for="oldPwd" class="col-md-3 control-label">Old password</label>
+			<div class="col-md-8">
+				<input type="password" class="form-control" id="oldPwd" placeholder="Old password" required ng-model="oldPass">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="newPwd" class="col-md-3 control-label">New password</label>
+			<div class="col-md-8">
+				<input type="password" class="form-control" id="newPwd" placeholder="New password" required ng-model="newPass">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="confirmNewPwd" class="col-md-3 control-label">Confirm New password</label>
+			<div class="col-md-8">
+				<input type="password" class="form-control" id="confirmNewPwd" placeholder="New password" required ng-model="confirmNewPass">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-offset-3 col-md-3">
+				<button class="btn btn-success" type="button">Update Password</button>
+			</div>
+		</div>
+	</form>
+</div>
+<hr>
+<div class="row">
+	<form class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-12" id="warning">
+				<h4>Once your account is deleted, it will be removed permanently.</h4>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-offset-4 col-md-4">
+				<button class="btn btn-danger btn-lg" type="button">Delete Your Account</button>
+			</div>
+		</div>
+	</form>
+</div>

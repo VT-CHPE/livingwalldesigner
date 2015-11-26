@@ -7,14 +7,8 @@
 				</div>
 				<table class="table table-hover">
 					<tbody>
-						<tr>
-							<td>Profile</td>
-						</tr>
-						<tr>
-							<td>Account Settings</td>
-						</tr>
-						<tr>
-							<td>Email Address</td>
+						<tr ng-repeat="sts in settings">
+							<td ng-click="changeEdit(sts)">{{sts.title}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -23,12 +17,14 @@
 		<div class="col-md-7">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<h3 class="panel-title">Something else</h3>
+					<h3 class="panel-title">{{currentEdit['detail-title']}}</h3>
 				</div>
 				<div class="panel-body">
-					Panel body content
+					<div ng-include="currentEdit.url"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<link rel="stylesheet" href="users/styles/users.client.settings.css">

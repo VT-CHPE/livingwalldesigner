@@ -14,7 +14,8 @@ angular.module('users').factory('Users', [
 				checkLogin: {method: "GET", params: {dest: "login"}},
 				logout: {method: "GET", params: {dest: "logout"}},
 				checkAdmin: {method: "GET", params: {dest: "admin"}},
-				current: {method: "GET", params: {dest: "current"}}
+				current: {method: "GET", params: {dest: "current"}},
+				update: {method: "POST", params: {dest: "update"}}
 			}
 		);
 	}
@@ -152,13 +153,26 @@ angular.module('users').service('UsersService', ['Users',
 				);
 		};
 
-		this.update = function () {
-			this.user.$update(
-				function () {
-					return {errorMessage: null};
+		this.update = function (args) {
+			return Users.update({
+				firstName: args.firstName,
+				lastName: args.lastName,
+				email: args.email,
+				occupation: args.occupation,
+				username: args.username,
+			})
+			.$promise
+			.then(
+				function (response) {
+					return {
+						"status": 200
+					};
 				},
 				function (errorResponse) {
-					return {errorMessage: errorResponse.data.message};
+					return {
+						"status": errorResponse.status,
+						"message": errorResponse.data.message
+					};
 				}
 			);
 		};
