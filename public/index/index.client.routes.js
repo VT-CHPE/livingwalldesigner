@@ -3,7 +3,7 @@
 angular.module('index').config(['$routeProvider',
 	function ($routeProvider) {
 		$routeProvider
-		.when('/', {
+		.when('/home', {
 			templateUrl: 'index/views/home.html',
 		})
 		.when('/topic', {
@@ -26,7 +26,8 @@ angular.module('index').config(['$routeProvider',
 			controller: 'UsersCtrl'
 		})
 		.otherwise({
-			redirectTo: '/'
+			redirectTo: '/',
+			templateUrl: '/index/views/main.html'
 		});
 	}
 ]);

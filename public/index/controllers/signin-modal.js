@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$window', 'UsersService', 'CurrentUserService',
-	function($scope, $modal, $window, UsersService, CurrentUserService) {
+angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$location', '$window', 'UsersService', 'CurrentUserService',
+	function($scope, $modal, $location, $window, UsersService, CurrentUserService) {
 
 		$scope.animationEnabled = true;
 		var inText = 'Sign In';
@@ -70,6 +70,8 @@ angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$win
 					if (result.status === 200 && result.success) {
 						$scope.buttonText = inText;
 						CurrentUserService.setCurrentUser(null);
+						$location.path("/");
+						// console.log("location");
 					} else {
 						// something went wrong
 						console.log(result);

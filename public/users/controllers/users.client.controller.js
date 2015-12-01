@@ -53,13 +53,19 @@ angular.module('users').controller('UsersCtrl', ['$scope', '$location', 'UsersSe
 		};
 
 		$scope.getCurrentUser = function () {
-			var temp = CurrentUserService.getCurrentUser();
-			console.log('here = ' + temp);
-			return temp;
+			return CurrentUserService.getCurrentUser();
 		};
 
 		var init = function () {
 			$scope.current = CurrentUserService.getCurrentUser();
+			if ($scope.current === null) {
+				var path = $location.path();
+				if (path === '/user/profile' ||
+					path === '/user') {
+					$location.path("/");
+				}
+			}
+			console.log('init');
 		};
 
 		init();

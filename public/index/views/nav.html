@@ -1,6 +1,9 @@
 
 <ul ng-controller="NavCtrl" class="nav nav-stacked fixed" data-spy="affix" data-offset-top="205" id="sidebar">
-	<li ng-repeat="topic in topics">
+	<li>
+		<input type="text" placeholder="search" ng-model="query">
+	</li>
+	<li ng-repeat="topic in topics | filter:query">
 		<a ng-class="{active: isActive(topic), expanded: topic.isExpanded}" ng-click="expandTopic(topic);activeTopic(topic)">{{topic.topicName}}
 			<span ng-if="hasSub(topic)">
 				<span class="glyphicon" ng-class="{'glyphicon-plus': !topic.isExpanded, 'glyphicon-minus': topic.isExpanded}"></span>

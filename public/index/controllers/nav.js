@@ -40,7 +40,7 @@ angular.module('index').controller('NavCtrl', ['$scope', '$location', 'TopicsSer
 					for (var i = 0; i < $scope.topics.length; i++) {
 						$scope.topics[i].isExpanded = false;
 					}
-					console.log($scope.topics);
+					
 				}
 			);
 		};

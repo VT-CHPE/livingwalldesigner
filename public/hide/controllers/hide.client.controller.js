@@ -6,7 +6,8 @@ angular.module('hide').controller('HideCtrl',['$scope', '$location',
 
 		$scope.hideNav = function () {
 			var path = $location.path();
-			if (path === '/user' ||
+			if (path === '/' ||
+				path === '/user' ||
 				path === '/user/profile') {
 				return true;
 			} else {
