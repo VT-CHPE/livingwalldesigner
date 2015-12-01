@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('UsersCtrl', ['$scope', '$location', 'UsersService',
-	function ($scope, $location, UsersService) {
+angular.module('users').controller('UsersCtrl', ['$scope', '$location', 'UsersService', 'CurrentUserService',
+	function ($scope, $location, UsersService, CurrentUserService) {
 
 		$scope.updateProfileResult = {
 			"message": "",
@@ -35,9 +35,12 @@ angular.module('users').controller('UsersCtrl', ['$scope', '$location', 'UsersSe
 					if (result.status === 200) {
 						$scope.updateProfileResult.message = "Update Succeed";
 						$scope.updateProfileResult.success = true;
+						CurrentUserService.refreshCurrentUser();
+						console.log('here1');
 					} else {
 						$scope.updateProfileResult.message = "Update Fail";
 						$scope.updateProfileResult.success = false;
+						console.log('here2');
 					}
 					$scope.updateProfileResult.show = true;
 					console.log('here');
@@ -49,22 +52,14 @@ angular.module('users').controller('UsersCtrl', ['$scope', '$location', 'UsersSe
 			return $scope.updateProfileResult.success;
 		};
 
-		var currentUser = function () {
-			UsersService.current().then(
-				function (result) {
-					if (result.status === 200) {
-						$scope.current = result.user;
-					} else {
-						$scope.current = null;
-						console.log(result.message);
-						console.log('Something went wrong');
-					}
-				}
-			);
+		$scope.getCurrentUser = function () {
+			var temp = CurrentUserService.getCurrentUser();
+			console.log('here = ' + temp);
+			return temp;
 		};
 
 		var init = function () {
-			currentUser();
+			$scope.current = CurrentUserService.getCurrentUser();
 		};
 
 		init();

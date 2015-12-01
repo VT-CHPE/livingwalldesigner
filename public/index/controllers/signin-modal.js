@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$window', 'UsersService',
-	function($scope, $modal, $window, UsersService) {
+angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$window', 'UsersService', 'CurrentUserService',
+	function($scope, $modal, $window, UsersService, CurrentUserService) {
 
 		$scope.animationEnabled = true;
 		var inText = 'Sign In';
@@ -59,6 +59,7 @@ angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$win
 				},
 				function () {	// user has dismissed the modal
 					$scope.buttonText = inText;
+					CurrentUserService.setCurrentUser(null);
 				}
 			);
 		};
@@ -68,6 +69,7 @@ angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$win
 				function (result) {
 					if (result.status === 200 && result.success) {
 						$scope.buttonText = inText;
+						CurrentUserService.setCurrentUser(null);
 					} else {
 						// something went wrong
 						console.log(result);
@@ -83,6 +85,7 @@ angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$win
 					if (result.status === 200) {
 						if (result.message) {
 							$scope.buttonText = outText;
+							CurrentUserService.refreshCurrentUser();
 						} else {
 							$scope.buttonText = inText;
 						}
@@ -97,8 +100,8 @@ angular.module('index').controller('SignInModalCtrl', ['$scope', '$modal', '$win
 	}
 ]);
 
-angular.module('index').controller('SignInModalInstanceCtrl', ['$scope', '$modalInstance', '$location', 'UsersService',
-	function ($scope, $modalInstance, $location, UsersService) {
+angular.module('index').controller('SignInModalInstanceCtrl', ['$scope', '$modalInstance', '$location', 'UsersService', 'CurrentUserService',
+	function ($scope, $modalInstance, $location, UsersService, CurrentUserService) {
 
 	$scope.signIn = function () {
 		$scope.errorMessage = '';
@@ -108,6 +111,8 @@ angular.module('index').controller('SignInModalInstanceCtrl', ['$scope', '$modal
 				if (result !== null) {
 					$scope.errorMessage = result.message;
 				} else {
+					// get the current user
+					CurrentUserService.refreshCurrentUser();
 					$modalInstance.close();
 				}
 			}

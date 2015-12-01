@@ -53,7 +53,7 @@
 				</form>
 
 				<ul class="nav navbar-nav navbar-right" ng-controller="UsersCtrl">
-					<li ng-show="current != null"><a href="" ng-click="gotoUserPanel()">Hello, {{current.fullName}}</a></li>
+					<li ng-show="getCurrentUser() != null"><a href="" ng-click="gotoUserPanel()">Hello, {{getCurrentUser().fullName}}</a></li>
 				</ul>
 				</div>
 			</div>
@@ -118,6 +118,7 @@
 <script src="users/users.client.module.js"></script>
 <script src="users/controllers/users.client.controller.js"></script>
 <script src="users/services/users.client.service.js"></script>
+<script src="users/services/current-user.client.service.js"></script>
 <script src="admin/admin.client.module.js"></script>
 <script src="topics/topics.client.module.js"></script>
 <script src="topics/services/topics.client.service.js"></script>
