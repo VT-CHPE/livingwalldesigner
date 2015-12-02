@@ -10,6 +10,19 @@ angular.module('currentTopic').controller('CurrentTopicCtrl', ['$scope', 'Curren
 		$scope.setCurrentTopic = function (topic) {
 			CurrentTopicService.setCurrentTopic(topic);
 		};
+
+		$scope.layout = function () {
+			var cur = $scope.currentTopic();
+			if (cur === null) {
+				return null;
+			}
+			if (typeof cur.layout === "undefined") {
+				return null;
+			} else {
+				console.log('layout = ' + cur.layout);
+				return cur.layout;
+			}
+		};
 	}
 
 ]);
