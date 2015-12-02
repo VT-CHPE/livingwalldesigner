@@ -23,6 +23,9 @@ angular.module('topics').service('TopicsService', ['Topics',
 				topicName: args.topicName,
 				contentUrl: args.contentUrl,
 				order: args.order,
+				layout: args.layout,
+				pos_header: args.pos_header,
+				pos_left: args.pos_left,
 				subTopicNames: args.subTopicNames
 			});
 

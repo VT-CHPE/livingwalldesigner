@@ -40,6 +40,26 @@ var TopicSchema = new Schema({
 		unique: true,
 		min: 1,
 	},
+	lwImageUrl: {
+		type: String
+	},
+	hgImageUrl: {
+		type: String
+	},
+	layout: {
+		type: String,
+		enum: ['2cols', '1col'],
+		default: '1col',
+		required: 'Layout type is required'
+	},
+	pos_header: {
+		type: Boolean,
+		default: false
+	},
+	pos_left: {
+		type: Boolean,
+		default: true
+	},
 	created: {
 		type: Date,
 		default: Date.now

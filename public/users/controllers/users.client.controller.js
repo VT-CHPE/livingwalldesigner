@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('UsersCtrl', ['$scope', '$location', 'UsersService', 'CurrentUserService',
-	function ($scope, $location, UsersService, CurrentUserService) {
+angular.module('users').controller('UsersCtrl', ['$scope', '$location', 'UsersService', 'CurrentUserService', 'CurrentTopicService',
+	function ($scope, $location, UsersService, CurrentUserService, CurrentTopicService) {
 
 		$scope.updateProfileResult = {
 			"message": "",
@@ -18,6 +18,7 @@ angular.module('users').controller('UsersCtrl', ['$scope', '$location', 'UsersSe
 		$scope.currentEdit = $scope.settings[0];
 
 		$scope.gotoUserPanel = function () {
+			CurrentTopicService.setCurrentTopic(null);
 			$location.path('/user');
 		};
 

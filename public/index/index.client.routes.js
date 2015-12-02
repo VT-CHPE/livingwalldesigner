@@ -3,9 +3,6 @@
 angular.module('index').config(['$routeProvider',
 	function ($routeProvider) {
 		$routeProvider
-		.when('/home', {
-			templateUrl: 'index/views/home.html',
-		})
 		.when('/topic', {
 			templateUrl: 'index/views/topic.html',
 			controller: 'CurrentTopicCtrl',
@@ -13,9 +10,6 @@ angular.module('index').config(['$routeProvider',
 		.when('/sub-topic', {
 			templateUrl: 'index/views/sub-topic.html',
 			controller: 'CurrentTopicCtrl'
-		})
-		.when('/contact', {
-			templateUrl: 'index/views/contact.html',
 		})
 		.when('/user', {
 			templateUrl: '/users/views/users.client.manage.html',

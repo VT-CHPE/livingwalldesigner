@@ -14,6 +14,7 @@
 							<th>#</th>
 							<th>Name</th>
 							<th>Actions</th>
+							<th>Pos</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -23,6 +24,10 @@
 							<td ng-controller="TopicModalCtrl">
 								<span class="glyphicon glyphicon-pencil" ng-click="modifyTopicModal(topic, 'lg')"></span>&nbsp;&nbsp;&nbsp;
 								<span class="glyphicon glyphicon-trash" ng-click="deleteTopicModal(topic, 'lg')"></span>
+							</td>
+							<td>
+								<span ng-show="topic.pos_header" class="glyphicon glyphicon-arrow-up"></span>
+								<span ng-show="topic.pos_left" class="glyphicon glyphicon-arrow-left"></span>
 							</td>
 						</tr>
 					</tbody>

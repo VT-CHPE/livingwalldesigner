@@ -6,6 +6,10 @@ angular.module('currentTopic').controller('CurrentTopicCtrl', ['$scope', 'Curren
 		$scope.currentTopic = function () {
 			return CurrentTopicService.getCurrentTopic();
 		};
+
+		$scope.setCurrentTopic = function (topic) {
+			CurrentTopicService.setCurrentTopic(topic);
+		};
 	}
 
 ]);

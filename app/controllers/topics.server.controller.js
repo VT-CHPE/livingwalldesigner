@@ -82,6 +82,9 @@ exports.update = function (req, res) {
 	topic.contentUrl = req.body.newTopic.contentUrl;
 	topic.subTopicNames = req.body.newTopic.subTopicNames;
 	topic.order = req.body.newTopic.order;
+	topic.layout = req.body.newTopic.layout;
+	topic.pos_header = req.body.newTopic.pos_header;
+	topic.pos_left = req.body.newTopic.pos_left;
 
 	topic.save(function (err) {
 		if (err) {

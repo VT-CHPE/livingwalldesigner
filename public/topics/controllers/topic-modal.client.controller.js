@@ -130,6 +130,9 @@ angular.module('topics').controller('NewTopicModalInstanceCtrl', ['$scope', '$mo
 		var init = function () {
 			$scope.create = {};
 			$scope.create.subTopicNames = [];
+			$scope.create.layout = "1col";
+			$scope.create.pos_left = true;
+			$scope.create.pos_header = false;
 			$scope.errorMessage = '';
 			$scope.modalTitle = "New Topic";
 		};

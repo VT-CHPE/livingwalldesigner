@@ -15,6 +15,7 @@ angular.module('index').controller('NavCtrl', ['$scope', '$location', 'TopicsSer
 		};
 
 		$scope.isActive = function (args) {
+			currentActive = CurrentTopicService.getCurrentTopic();
 			if (currentActive === null) {
 				return false;
 			}
@@ -48,6 +49,7 @@ angular.module('index').controller('NavCtrl', ['$scope', '$location', 'TopicsSer
 		var init = function () {
 			
 			updateTopics();
+			currentActive = CurrentTopicService.getCurrentTopic();
 		};
 
 		init();
