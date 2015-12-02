@@ -1,6 +1,7 @@
 'use strict';
 
 var Topic = require('mongoose').model('Topic');
+var util = require('util');
 
 var getErrorMessage = function (err) {
 	var message = '';
@@ -78,6 +79,7 @@ exports.read = function (req, res) {
 exports.update = function (req, res) {
 	var topic = req.topic;
 
+	// console.log('topic = ' + topic);
 	topic.topicName = req.body.newTopic.topicName;
 	topic.contentUrl = req.body.newTopic.contentUrl;
 	topic.subTopicNames = req.body.newTopic.subTopicNames;
@@ -85,6 +87,9 @@ exports.update = function (req, res) {
 	topic.layout = req.body.newTopic.layout;
 	topic.pos_header = req.body.newTopic.pos_header;
 	topic.pos_left = req.body.newTopic.pos_left;
+	topic.lwImageUrl = req.body.newTopic.lwImageUrl;
+	topic.hgImageUrl = req.body.newTopic.hgImageUrl;
+	// console.log('req.body.newTopic = ' + util.inspect(req.body.newTopic));
 
 	topic.save(function (err) {
 		if (err) {

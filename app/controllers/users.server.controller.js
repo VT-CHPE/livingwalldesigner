@@ -195,9 +195,7 @@ exports.requiresLogin = function (req, res, next) {
 
 exports.requiresAdmin = function (req, res, next) {
 	if (req.user.role !== 'Admin') {
-		return res.status(401).send({
-			message: 'Admin privilege is required'
-		});
+		return res.status(401).redirect("/");
 	}
 
 	next();

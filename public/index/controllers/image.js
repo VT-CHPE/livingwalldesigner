@@ -4,11 +4,13 @@ angular.module('index').controller('ImageCtrl', ['$scope', '$modal', 'CurrentTop
 
 	$scope.getImageUrl = function () {
 		var url = CurrentTopicService.getPreviewImageUrl();
+		// console.log(url);
 		$scope.noImage = (url === null ? true : false);
 		return url;
 	};
 
 	$scope.expand = function (url) {
+		console.log('expand ' + url);
 		$modal.open({
 			templateUrl: '/index/views/image-modal.html',
 			controller: ExpandImageCtrl,
