@@ -98,6 +98,8 @@ angular.module('topics').controller('TopicsCtrl', ['$scope', 'TopicsService',
 			$scope.errorMessage = '';
 			$scope.currentSub = null;
 			$scope.currentTopic = null;
+
+			console.log("in topic ctrl");
 		};
 
 		init();
