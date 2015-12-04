@@ -47,7 +47,7 @@ angular.module('index').controller('NavCtrl', ['$scope', '$location', 'TopicsSer
 		};
 
 		var init = function () {
-			
+			console.log("nav js");
 			updateTopics();
 			currentActive = CurrentTopicService.getCurrentTopic();
 		};
