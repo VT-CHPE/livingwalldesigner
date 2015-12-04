@@ -1,1 +1,150 @@
-This is the contact view
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html 
+
+.footer {
+    background-color: #777;
+    color: #000000;
+    text-align: left; center
+    font-size: 12px;
+    padding: 10px;
+    
+}
+
+.button {
+		padding: 15px;
+	padding-bottom: 25px;
+	
+}
+
+.btn {
+	color: #fff;
+	background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<div class="row">
+<!-- You can change col-md-6 to col-md-5 or something else, but no larger than 12,
+  the size of this div will be calculated using 6/12 = 50%
+  if you use col-md-5, then that will be 5/12 = 41.67%
+ -->
+  <div class="col-md-6">
+    This is the left side
+
+
+<div class="header">
+<h3>Team Contacts</h3>
+</div>
+
+<div class="footer">
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Contact these people already...
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+      
+      <p>
+Welcome to the Living Wall Designer. This is a student project, managed and continuously developed by students. The website hopes to be a repository of collective knowledge to share with others.
+</p>
+<p>Feel Free to contact us about questions on the site, its use, its development, or vegetated assemblies. We would love to hear from you!</p>
+<p>Click The Button.</p>
+<p>Find out who we are.</p> 
+<p>You know you want to.</p> 
+     
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="button">
+
+<!-- Button trigger modal -->
+
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Design Team
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Design Team Contacts</h4>
+      </div>
+      <div class="modal-body">
+        
+        <H4>Design Team</H4>
+        <p>Kenneth Black: Domain Expert Vegetated Assemblies</p>
+        <p>Person 2</p>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Thanks!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+  Website Team
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel2">Website Team Contacts</h4>
+      </div>
+      <div class="modal-body">
+        
+        <H4>Website Design</H4>
+        <p>Person 3</p>
+        <p>Person 4</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Thanks!</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
+
