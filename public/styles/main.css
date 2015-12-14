@@ -1,5 +1,5 @@
 body {
-	background-color: #F5F1F1;
+	background-color: #ddd;
 }
 
 #main-content {
@@ -30,4 +30,5 @@ body > div.container-fluid {
 
 div#main-content.restore-padding {
 	padding-left: 15px;
+	padding-right: 15px;
 }
